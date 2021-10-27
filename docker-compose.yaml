@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    container_name: test-mysql
+    image: test-mysql
+    environment:
+      MYSQL_DATABASE: workaround
+      MYSQL_USER: root
+      MYSQL_PASSWORD: my-secret-pw
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3308:3306"
+    restart: always
