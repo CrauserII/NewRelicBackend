@@ -17,6 +17,9 @@ public class AppCompany {
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
+    public AppCompany() {
+        super();
+    }
 
     public AppCompany(Integer company_id, String companyName) {
         this.company_id = company_id;
