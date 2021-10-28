@@ -15,7 +15,7 @@ public class   AppUserController {
         @RequestMapping(value = "/appUsers", method = RequestMethod.GET)
     public List<AppUser> getEmployees(@RequestParam(required = false) Integer offset,
                                       @RequestParam(required = false) String search,
-                                      @RequestParam(required = false) Integer company,
+                                      @RequestParam(required = false) String company,
                                       @RequestParam(required = false) String order) {
 
         return userService.getAllUsers(offset,search, company,order);

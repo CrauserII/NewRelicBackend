@@ -13,7 +13,7 @@ public class AppUserServiceImpl implements AppUserService{
     AppUserDAO userDao;
 
     @Override
-    public List<AppUser> getAllUsers(Integer offset, String search,Integer company, String order) {
+    public List<AppUser> getAllUsers(Integer offset, String search,String company, String order) {
         List<AppUser> result = userDao.getAllEmployees(offset, search,company,order);
         return result;
     }

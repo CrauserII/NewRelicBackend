@@ -18,6 +18,11 @@ public class AppCompany {
         this.companyName = companyName;
     }
 
+    public AppCompany(Integer company_id, String companyName) {
+        this.company_id = company_id;
+        this.companyName = companyName;
+    }
+
     private Integer company_id;
     private String companyName;
 

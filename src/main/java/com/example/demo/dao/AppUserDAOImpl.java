@@ -22,10 +22,10 @@ public class AppUserDAOImpl extends JdbcDaoSupport implements AppUserDAO{
         setDataSource(dataSource);
     }
 
-    public static String getSQlString(Integer offset, String search,Integer company, String order){
+    public static String getSQlString(Integer offset, String search,String company, String order){
         offset = offset != null?offset:0;
         search = search != null?search:"";
-        String adtCompany= (company ==null || company ==0)?"":" AND company_id =="+company;
+        String adtCompany= (company ==null || company.equalsIgnoreCase("All"))?"":" AND companyName LIKE '"+company+"'";
         order = order==null?" ORDER BY lastName":" ORDER BY "+order;
         return "SELECT * FROM appUser a LEFT JOIN company b on a.company_id=b.company_id "+
                 "WHERE (lastName LIKE '%"+search+"%' OR firstName LIKE '%"+search+"%') "+
@@ -36,7 +36,7 @@ public class AppUserDAOImpl extends JdbcDaoSupport implements AppUserDAO{
     }
 
     @Override
-    public List<AppUser> getAllEmployees(Integer offset, String search,Integer company, String order) {
+    public List<AppUser> getAllEmployees(Integer offset, String search,String company, String order) {
         String sql = getSQlString(offset,search,company,order);
 
         List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);

@@ -32,6 +32,16 @@ public class AppUser {
     public void setCompany_name(String company_name) {
         this.company_name = company_name;
     }
+    public AppUser(){
+        super();
+    }
+    public AppUser(Integer user_id, String firstName, String lastName, Integer company_id, String company_name) {
+        this.user_id = user_id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.company_id = company_id;
+        this.company_name = company_name;
+    }
 
     public String getLastName() {
         return lastName;
