@@ -30,9 +30,9 @@ public class AppUserDAOImpl extends JdbcDaoSupport implements AppUserDAO{
         return "SELECT * FROM appUser a LEFT JOIN company b on a.company_id=b.company_id "+
                 "WHERE (lastName LIKE '%"+search+"%' OR firstName LIKE '%"+search+"%') "+
                 adtCompany +
-                " LIMIT "+limit+
-                " OFFSET "+offset+
                 order;
+//                " LIMIT "+limit+
+//                " OFFSET "+offset;
     }
 
     @Override
